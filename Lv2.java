@@ -24,48 +24,25 @@ public class Lv2 {
                 case "+" :
                     number = Calculator.addCalculate(firNumber, secNumber);
                     System.out.println(number);
-                    Calculator.getResultsList(number);
 
-                    System.out.println("더 계산하고 싶으면 아무 키를 입력하고, 계산을 종료하고 싶으면 exit를 입력하시오.");
-                    Scanner exit1 = new Scanner(System.in);
-                    String exitText1 = exit1.next();
+                    exitKey = Calculator.exitCalculator();
 
-                    if ("exit".equals(exitText1)){
-                        exitKey = false;
-                    }
-                    else {
-                        exitKey = true;
-                    }
                     break;
 
                 case "-" :
                     number = Calculator.substractCalculate (firNumber, secNumber);
                     System.out.println(number);
 
-                    System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
-                    Scanner exit2 = new Scanner(System.in);
-                    String exitText2 = exit2.next();
-                    if ("exit".equals(exitText2)){
-                        exitKey=false;
-                    }
-                    else {
-                        exitKey = true;
-                    }
+                    exitKey = Calculator.exitCalculator();
+
                     break;
 
                 case "*" :
                     number = Calculator.multiplyCalculate(firNumber, secNumber);
                     System.out.println(number);
 
-                    System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
-                    Scanner exit3 = new Scanner(System.in);
-                    String exitText3 = exit3.next();
-                    if ("exit".equals(exitText3)){
-                        exitKey=false;
-                    }
-                    else {
-                        exitKey=true;
-                    }
+                    exitKey = Calculator.exitCalculator();
+
                     break;
 
                 case "/" :
@@ -77,15 +54,7 @@ public class Lv2 {
                         number = Calculator.divideCalculate(firNumber, secNumber);
                         System.out.println(number);
 
-                        System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
-                        Scanner exit4 = new Scanner(System.in);
-                        String exitText4 = exit4.next();
-                        if ("exit".equals(exitText4)){
-                            exitKey=false;
-                        }
-                        else {
-                            exitKey=true;
-                        }
+                        exitKey = Calculator.exitCalculator();
                     }
                     break;
 
@@ -102,11 +71,11 @@ public class Lv2 {
 
         switch (inputKey) {
             case "set" -> {
-                Calculator.showResultsList();
+                System.out.println(Calculator.getResultsList());
                 System.out.println("수정하고 싶은 결과의 순번과 값을 차례대로 입력하시오.");
                 System.out.println("수정하고 싶은 결과의 순번을 입력하시오: ");
                 Scanner setIndex = new Scanner(System.in);
-                int setIndexKey = (setIndex.nextInt() + 1);
+                int setIndexKey = (setIndex.nextInt() - 1);
 
                 System.out.println("수정하고 싶은 결과의 값을 입력하시오: ");
                 Scanner setValue = new Scanner(System.in);
